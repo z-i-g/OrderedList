@@ -29,7 +29,10 @@ public class OrderedList<T>
     {
         Integer intV1 = Optional.ofNullable((Integer) v1).orElse(0);
         Integer intV2 =  Optional.ofNullable((Integer) v2).orElse(0);
-        return intV1.compareTo(intV2);
+        int res = 0;
+        if (intV1 < intV2) res = -1;
+        if (intV1 > intV2) res = 1;
+        return res;
     }
 
     public void add(T value)
