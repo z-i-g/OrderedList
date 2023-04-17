@@ -27,12 +27,25 @@ public class OrderedList<T>
 
     public int compare(T v1, T v2)
     {
+        if (v1 instanceof Number)
+            return compareNumber(v1, v2);
+        else
+            return compareString(v1, v2);
+    }
+
+    private int compareNumber(T v1, T v2) {
         Integer intV1 = Optional.ofNullable((Integer) v1).orElse(0);
         Integer intV2 =  Optional.ofNullable((Integer) v2).orElse(0);
         int res = 0;
         if (intV1 < intV2) res = -1;
         if (intV1 > intV2) res = 1;
         return res;
+    }
+
+    private int compareString(T v1, T v2) {
+        String strV1 = Optional.ofNullable((String) v1).orElse("").trim();
+        String strV2 =  Optional.ofNullable((String) v2).orElse("").trim();
+        return strV1.compareTo(strV2);
     }
 
     public void add(T value)
