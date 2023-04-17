@@ -367,7 +367,7 @@ class OrderedListTest {
         orderedList.delete(1);
 
         assertEquals(3, orderedList.head.value);
-        assertEquals(23, orderedList.tail.value);
+        assertEquals(2, orderedList.tail.value);
     }
 
     @Test

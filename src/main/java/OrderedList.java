@@ -87,7 +87,7 @@ public class OrderedList<T>
         while (node != null) {
             if (node.value == val)
                 return node;
-            else if (node.next == null)
+            if (node.next == null)
                 return null;
             if (this._ascending && compare(node.value, val) < 0 && compare(node.next.value, val) > 0)
                 return null;
